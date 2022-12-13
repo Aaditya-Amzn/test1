@@ -1,0 +1,26 @@
+
+name: Github to CodeCommit Sync
+description: 'Synchronize from GitHub to CodeCommit via GitHub Actions using IAM credentials and creating a new commit instead of mirroring the entire repo.'
+author: 'aaditya'
+branding:
+  icon: terminal
+  color: yellow
+inputs:
+  repository_name:
+    description: CodeCommit repository name.
+    required: true
+  aws_region:
+    description: Region of the CodeCommit repository.
+    required: true
+  source_branch:
+    description: Branch to take from source repo
+    required: true
+  destination_branch:
+    description: Branch to take from destination repo
+    required: true
+  folders_to_copy:
+    description: Folders to copy from source to destination
+    required: false
+runs:
+  using: 'docker'
+  image: './Dockerfile'
