@@ -24,7 +24,7 @@ jobs:
           aws-region: us-west-2
 
       - name: Sync up to CodeCommit
-        uses: ./
+        uses: Aaditya-Amzn/test1@mainline
         with:
           repository_name: bridge-repo
           aws_region: us-west-2
