@@ -3,12 +3,13 @@
 set -ue
 echo "Here"
 
-# RepositoryName="${INPUT_REPOSITORY_NAME}"
-# AwsRegion="${INPUT_AWS_REGION}"
-# SourceBranch="${INPUT_SOURCE_BRANCH}"
-# DestinationBranch="${INPUT_DESTINATION_BRANCH}"
-# FoldersToCopy="${INPUT_FOLDERS_TO_COPY}"
-# CodeCommitUrl="https://git-codecommit.${AwsRegion}.amazonaws.com/v1/repos/${RepositoryName}"
+RepositoryName="${INPUT_REPOSITORY_NAME}"
+AwsRegion="${INPUT_AWS_REGION}"
+SourceBranch="${INPUT_SOURCE_BRANCH}"
+DestinationBranch="${INPUT_DESTINATION_BRANCH}"
+FoldersToCopy="${INPUT_FOLDERS_TO_COPY}"
+CodeCommitUrl="https://git-codecommit.${AwsRegion}.amazonaws.com/v1/repos/${RepositoryName}"
+echo $CodeCommitUrl
 # echo "${github.event.before}"
 # echo "${github.event.after}"
 # CommitMessage="syncing commits for range ${github.event.before} to ${github.event.after}"
