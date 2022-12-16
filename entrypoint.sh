@@ -9,6 +9,7 @@ SourceBranch="${INPUT_SOURCE_BRANCH}"
 DestinationBranch="${INPUT_DESTINATION_BRANCH}"
 FoldersToCopy="${INPUT_FOLDERS_TO_COPY}"
 CodeCommitUrl="https://git-codecommit.${AwsRegion}.amazonaws.com/v1/repos/${RepositoryName}"
+github="${INPUT_GITHUB}" 
 echo $CodeCommitUrl
 echo $github
 echo "${github.event.before}"
