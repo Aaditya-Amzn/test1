@@ -12,8 +12,6 @@ CodeCommitUrl="https://git-codecommit.${AwsRegion}.amazonaws.com/v1/repos/${Repo
 github="${INPUT_GITHUB}" 
 echo $CodeCommitUrl
 echo "github ---- "
-echo "${github}"
-echo "----"
 echo "${github.event}"
 echo "----"
 CommitMessage="syncing commits for range ${github.event.before} to ${github.event.after}"
