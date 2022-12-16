@@ -32,4 +32,4 @@ jobs:
           destination_branch: mainline
           folders_to_copy: folder1 folder2
           github_after: ${{ github.event.after }}
-          github_after: ${{ github.event.before }}
+          github_before: ${{ github.event.before }}
