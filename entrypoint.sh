@@ -36,7 +36,7 @@ then
         cp -r "/github/workspace/$folder" .
     done
 else
-    cp -r "/github/workspace" .  
+    cp -r "/github/workspace/" .  
 fi
 echo $(ls)
 # git remote add sync ${CodeCommitUrl}
