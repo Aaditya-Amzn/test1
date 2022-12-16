@@ -27,7 +27,7 @@ git checkout "$DestinationBranch"
 
 cd "$RepositoryName"
 echo $FoldersToCopy
-echo $(ls)
+echo $(ls /github/workspace)
 if [$FoldersToCopy != ""]
 then
     for folder in $FoldersToCopy
