@@ -12,8 +12,7 @@ CodeCommitUrl="https://git-codecommit.${AwsRegion}.amazonaws.com/v1/repos/${Repo
 github="${INPUT_GITHUB}" 
 echo $CodeCommitUrl
 echo "github ---- "
-event=${github["event"]}
-echo $event
+echo $github
 echo "----"
 CommitMessage="syncing commits for range ${github.event.before} to ${github.event.after}"
 # git config --global --add safe.directory /github/workspace
