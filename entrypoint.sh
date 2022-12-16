@@ -32,7 +32,7 @@ echo $FoldersToCopy
 if [ -z "$FoldersToCopy"]
 then
     echo "here copying"
-    cp -r "/github/workspace/" .  
+    cp -r "/github/workspace/"* .  
 else
     for folder in $FoldersToCopy
     do
