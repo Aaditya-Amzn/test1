@@ -22,6 +22,7 @@ git config --global --add safe.directory /github/workspace
 git config --global credential.'https://git-codecommit.*.amazonaws.com'.helper '!aws codecommit credential-helper $@'
 git config --global credential.UseHttpPath true
 
+cd /
 git clone "$CodeCommitUrl"
 git checkout "$DestinationBranch"
 
