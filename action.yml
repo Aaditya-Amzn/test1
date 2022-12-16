@@ -30,6 +30,4 @@ inputs:
 runs:
   using: 'docker'
   image: './dockerfile'
-  env:
-    github_before: ${{ github.event.before }}
 

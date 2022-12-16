@@ -16,28 +16,27 @@ echo "github ---- "
 echo $github_after
 echo $github_before
 echo "----"
-# CommitMessage="syncing commits for range ${github.event.before} to ${github.event.after}"
-# git config --global --add safe.directory /github/workspace
-# git config --global credential.'https://git-codecommit.*.amazonaws.com'.helper '!aws codecommit credential-helper $@'
-# git config --global credential.UseHttpPath true
+CommitMessage="syncing commits for range ${github_before} to ${github_after}"
+echo $CommitMessage
+git config --global --add safe.directory /github/workspace
+git config --global credential.'https://git-codecommit.*.amazonaws.com'.helper '!aws codecommit credential-helper $@'
+git config --global credential.UseHttpPath true
 
-# git clone "$CodeCommitUrl"
-# git checkout "$DestinationBranch"
+git clone "$CodeCommitUrl"
+git checkout "$DestinationBranch"
 
-# cd "$RepositoryName"
+cd "$RepositoryName"
 
-# if [$FoldersToCopy]
-# then
-#     for folder in $FoldersToCopy
-#     do
-#         echo $folder
-#         cp -r "/github/workspace/$folder" .
-#     done
-# else
-#     cp -r "/github/workspace" .  
-# fi
-
-# echo $CommitMessage
+if [$FoldersToCopy]
+then
+    for folder in $FoldersToCopy
+    do
+        echo $folder
+        cp -r "/github/workspace/$folder" .
+    done
+else
+    cp -r "/github/workspace" .  
+fi
     
 # git remote add sync ${CodeCommitUrl}
 # git add .
