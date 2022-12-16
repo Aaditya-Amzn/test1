@@ -9,17 +9,17 @@ SourceBranch="${INPUT_SOURCE_BRANCH}"
 DestinationBranch="${INPUT_DESTINATION_BRANCH}"
 FoldersToCopy="${INPUT_FOLDERS_TO_COPY}"
 CodeCommitUrl="https://git-codecommit.${AwsRegion}.amazonaws.com/v1/repos/${RepositoryName}"
-github="${INPUT_GITHUB}" 
+github_after="${INPUT_GITHUB_AFTER}" 
+github_before="${INPUT_GITHUB_BEFORE}" 
 echo $CodeCommitUrl
 echo "github ---- "
-echo $github
+echo $github_after
+echo $github_before
 echo "----"
 # CommitMessage="syncing commits for range ${github.event.before} to ${github.event.after}"
 # git config --global --add safe.directory /github/workspace
 # git config --global credential.'https://git-codecommit.*.amazonaws.com'.helper '!aws codecommit credential-helper $@'
 # git config --global credential.UseHttpPath true
-
-# ActionEvent = "${github.event}"
 
 # git clone "$CodeCommitUrl"
 # git checkout "$DestinationBranch"

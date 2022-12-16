@@ -21,9 +21,12 @@ inputs:
   folders_to_copy:
     description: Folders to copy from source to destination
     required: false
-  github:
-    description: Github Context
+  github_before:
+    description: Github Context before
     required: true    
+  github_after:
+    description: Github Context after
+    required: true 
 runs:
   using: 'docker'
   image: './dockerfile'
