@@ -26,7 +26,8 @@ git clone "$CodeCommitUrl"
 git checkout "$DestinationBranch"
 
 cd "$RepositoryName"
-
+echo $FoldersToCopy
+echo $(ls)
 if [$FoldersToCopy != ""]
 then
     for folder in $FoldersToCopy
