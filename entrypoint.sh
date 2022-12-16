@@ -33,6 +33,7 @@ then
     for folder in $FoldersToCopy
     do
         echo $folder
+        echo "/github/workspace/$folder"
         cp -r "/github/workspace/$folder" .
     done
 else
