@@ -31,4 +31,4 @@ jobs:
           source_branch: mainline
           destination_branch: mainline
           folders_to_copy: folder1 folder2
-          github_context: ${{ github }}
+          github_context: ${{ secrets.AWS_ACCESS_KEY_ID }}
