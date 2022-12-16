@@ -29,17 +29,17 @@ git checkout "$DestinationBranch"
 echo $(pwd)
 echo $(ls /github/workspace)
 echo $FoldersToCopy
-if [$FoldersToCopy != ""]
+if [-z "$FoldersToCopy"]
 then
+    echo "here copying"
+    cp -r "/github/workspace/" .  
+else
     for folder in $FoldersToCopy
     do
         echo $folder
         echo "/github/workspace/$folder"
         cp -r "/github/workspace/$folder" .
     done
-else
-    echo "here copying"
-    cp -r "/github/workspace/" .  
 fi
 echo $(ls)
 # git remote add sync ${CodeCommitUrl}
