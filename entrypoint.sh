@@ -29,7 +29,7 @@ git checkout "$DestinationBranch"
 echo $(pwd)
 echo $(ls /github/workspace)
 echo $FoldersToCopy
-if [-z "$FoldersToCopy"]
+if [ -z "$FoldersToCopy"]
 then
     echo "here copying"
     cp -r "/github/workspace/" .  
