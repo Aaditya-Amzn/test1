@@ -24,9 +24,9 @@ git config --global credential.UseHttpPath true
 
 cd /
 git clone "$CodeCommitUrl"
+cd "$RepositoryName"
 git checkout "$DestinationBranch"
 
-cd "$RepositoryName"
 echo $GITHUB_WORKSPACE
 echo $(pwd)
 echo $FoldersToCopy
