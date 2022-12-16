@@ -26,7 +26,7 @@ cd /
 git clone "$CodeCommitUrl"
 cd "$RepositoryName"
 git checkout "$DestinationBranch"
-
+echo $(pwd)
 if [$FoldersToCopy != ""]
 then
     for folder in $FoldersToCopy
@@ -36,6 +36,7 @@ then
         cp -r "/github/workspace/$folder" .
     done
 else
+    echo "here copying"
     cp -r "/github/workspace/" .  
 fi
 echo $(ls)
