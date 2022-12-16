@@ -21,7 +21,7 @@ inputs:
   folders_to_copy:
     description: Folders to copy from source to destination
     required: false
-  github_context:
+  github:
     description: Github Context
     required: true    
 runs:

@@ -13,8 +13,8 @@ github="${INPUT_GITHUB}"
 echo $CodeCommitUrl
 echo $github
 echo "${github.event.before}"
-# echo "${github.event.after}"
-# CommitMessage="syncing commits for range ${github.event.before} to ${github.event.after}"
+echo "${github.event.after}"
+CommitMessage="syncing commits for range ${github.event.before} to ${github.event.after}"
 # git config --global --add safe.directory /github/workspace
 # git config --global credential.'https://git-codecommit.*.amazonaws.com'.helper '!aws codecommit credential-helper $@'
 # git config --global credential.UseHttpPath true
