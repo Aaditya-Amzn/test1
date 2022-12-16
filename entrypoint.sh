@@ -11,7 +11,7 @@ FoldersToCopy="${INPUT_FOLDERS_TO_COPY}"
 CodeCommitUrl="https://git-codecommit.${AwsRegion}.amazonaws.com/v1/repos/${RepositoryName}"
 github="${INPUT_GITHUB}" 
 echo $CodeCommitUrl
-echo $github
+echo ${github.event}
 echo "${github.event.before}"
 echo "${github.event.after}"
 CommitMessage="syncing commits for range ${github.event.before} to ${github.event.after}"
