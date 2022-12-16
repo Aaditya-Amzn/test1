@@ -27,10 +27,6 @@ git clone "$CodeCommitUrl"
 cd "$RepositoryName"
 git checkout "$DestinationBranch"
 
-echo $GITHUB_WORKSPACE
-echo $(pwd)
-echo $FoldersToCopy
-echo $(ls /github/workspace)
 if [$FoldersToCopy != ""]
 then
     for folder in $FoldersToCopy
@@ -42,7 +38,7 @@ then
 else
     cp -r "/github/workspace" .  
 fi
-    
+echo $(ls)
 # git remote add sync ${CodeCommitUrl}
 # git add .
 # git commit -m "${CommitMessage}"
