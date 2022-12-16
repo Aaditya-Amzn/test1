@@ -27,7 +27,7 @@ git checkout "$DestinationBranch"
 
 cd "$RepositoryName"
 
-if [$FoldersToCopy]
+if [$FoldersToCopy != ""]
 then
     for folder in $FoldersToCopy
     do
