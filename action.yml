@@ -14,10 +14,12 @@ inputs:
     required: true
   source_branch:
     description: Branch to take from source repo
-    required: true
+    required: false
+    defualt: 'main'
   destination_branch:
     description: Branch to take from destination repo
-    required: true
+    required: false
+    defualt: 'main'
   folders_to_copy:
     description: Folders to copy from source to destination
     required: false
@@ -27,6 +29,14 @@ inputs:
   github_after:
     description: Github Context after
     required: true 
+  automated_user_email:
+    description: Automated user email to create commit
+    required: false
+    default: 'automated@user.com'
+  automated_user_name:
+    description: Automated user namne to create commit
+    required: false
+    default: 'Automated User'
 runs:
   using: 'docker'
   image: './dockerfile'
