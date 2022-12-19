@@ -29,7 +29,7 @@ git clone "$CodeCommitUrl"
 cd "$RepositoryName"
 git checkout "$DestinationBranch"
 
-if [ -z "$FoldersToCopy"]
+if [ -z "$FoldersToCopy" ]
 then
     echo "folders to copy not sepcified. Copying entire repo"
     cp -r "/github/workspace/"* .  
@@ -44,7 +44,7 @@ fi
 git config user.email "$automated_user_email"
 git config user.name "$automated_user_name" 
 
-# git remote add sync ${CodeCommitUrl}
-# git add .
-# git commit -m "${CommitMessage}"
-# git push sync ${DestinationBranch}
+git remote add sync ${CodeCommitUrl}
+git add .
+git commit -m "${CommitMessage}"
+git push sync ${DestinationBranch}
