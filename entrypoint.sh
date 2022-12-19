@@ -1,7 +1,6 @@
 #!/bin/sh
 
 set -ue
-echo "Here"
 
 RepositoryName="${INPUT_REPOSITORY_NAME}"
 AwsRegion="${INPUT_AWS_REGION}"
@@ -11,38 +10,33 @@ FoldersToCopy="${INPUT_FOLDERS_TO_COPY}"
 CodeCommitUrl="https://git-codecommit.${AwsRegion}.amazonaws.com/v1/repos/${RepositoryName}"
 github_after="${INPUT_GITHUB_AFTER}" 
 github_before="${INPUT_GITHUB_BEFORE}" 
-echo $CodeCommitUrl
-echo "github ---- "
-echo $github_after
-echo $github_before
-echo "----"
 CommitMessage="syncing commits for range ${github_before} to ${github_after}"
-echo $CommitMessage
 git config --global --add safe.directory /github/workspace
 git config --global credential.'https://git-codecommit.*.amazonaws.com'.helper '!aws codecommit credential-helper $@'
 git config --global credential.UseHttpPath true
+
+cd /github/workspace/
+git status
+git branch
 
 cd /
 git clone "$CodeCommitUrl"
 cd "$RepositoryName"
 git checkout "$DestinationBranch"
-echo $(pwd)
-echo $(ls /github/workspace)
-echo $FoldersToCopy
+
 if [ -z "$FoldersToCopy"]
 then
-    echo "here copying"
+    echo "folders to copy not sepcified. Copying entire repo"
     cp -r "/github/workspace/"* .  
 else
     for folder in $FoldersToCopy
     do
-        echo $folder
-        echo "/github/workspace/$folder"
+        echo "copyng folder - ${folder}"
         cp -r "/github/workspace/$folder" .
     done
 fi
-echo $(ls)
-# git remote add sync ${CodeCommitUrl}
-# git add .
-# git commit -m "${CommitMessage}"
-# git push sync ${DestinationBranch}
+
+git remote add sync ${CodeCommitUrl}
+git add .
+git commit -m "${CommitMessage}"
+git push sync ${DestinationBranch}
